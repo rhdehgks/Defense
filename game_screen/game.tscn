@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3vpuhsddsbu4"]
+[gd_scene load_steps=8 format=3 uid="uid://c3vpuhsddsbu4"]
 
 [ext_resource type="Script" path="res://game_screen/game_screen.gd" id="1_6cie3"]
-[ext_resource type="PackedScene" uid="uid://dr8n2hlkjrlwo" path="res://game_screen/man.tscn" id="1_xj3yq"]
+[ext_resource type="PackedScene" uid="uid://bb8e0io6146kh" path="res://game_screen/man.tscn" id="1_xj3yq"]
 [ext_resource type="PackedScene" uid="uid://cpedle1cddeqo" path="res://game_screen/player.tscn" id="2_0nfae"]
+[ext_resource type="FontFile" uid="uid://b3op7qbt8ij11" path="res://assets/fonts/neodgm.ttf" id="2_w4jh1"]
 [ext_resource type="Texture2D" uid="uid://qpsegmc5j3b8" path="res://assets/wall.png" id="3_aen42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxseq"]
@@ -39,6 +40,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="FPSLabel" type="Label" parent="Screen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_w4jh1")
+theme_override_font_sizes/font_size = 32
+text = "FPS: "
 
 [node name="World" type="Control" parent="Screen"]
 layout_mode = 1
@@ -206,6 +219,12 @@ position = Vector2(848, 400)
 
 [node name="Player" parent="Screen/World" instance=ExtResource("2_0nfae")]
 position = Vector2(480, 384)
+
+[node name="Player2" parent="Screen/World" instance=ExtResource("2_0nfae")]
+position = Vector2(576, 432)
+
+[node name="Player3" parent="Screen/World" instance=ExtResource("2_0nfae")]
+position = Vector2(608, 352)
 
 [node name="TileMap" type="TileMap" parent="Screen/World"]
 tile_set = SubResource("TileSet_xqrl7")
