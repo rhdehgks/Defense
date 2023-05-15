@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3vpuhsddsbu4"]
+[gd_scene load_steps=12 format=3 uid="uid://c3vpuhsddsbu4"]
 
 [ext_resource type="Script" path="res://game_screen/game_screen.gd" id="1_6cie3"]
 [ext_resource type="PackedScene" uid="uid://bb8e0io6146kh" path="res://game_screen/man.tscn" id="1_xj3yq"]
 [ext_resource type="PackedScene" uid="uid://cpedle1cddeqo" path="res://game_screen/player.tscn" id="2_0nfae"]
 [ext_resource type="FontFile" uid="uid://b3op7qbt8ij11" path="res://assets/fonts/neodgm.ttf" id="2_w4jh1"]
 [ext_resource type="Texture2D" uid="uid://qpsegmc5j3b8" path="res://assets/wall.png" id="3_aen42"]
+[ext_resource type="Script" path="res://game_screen/player.gd" id="5_buw34"]
+[ext_resource type="Texture2D" uid="uid://brcsu66vn2qxu" path="res://assets/grandfather.png" id="6_q64es"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ej6p6"]
+rough = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ee871"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxseq"]
 texture = ExtResource("3_aen42")
@@ -218,7 +225,7 @@ position = Vector2(512, 512)
 position = Vector2(848, 400)
 
 [node name="Player" parent="Screen/World" instance=ExtResource("2_0nfae")]
-position = Vector2(480, 384)
+position = Vector2(480, 368)
 
 [node name="Player2" parent="Screen/World" instance=ExtResource("2_0nfae")]
 position = Vector2(576, 432)
@@ -226,7 +233,48 @@ position = Vector2(576, 432)
 [node name="Player3" parent="Screen/World" instance=ExtResource("2_0nfae")]
 position = Vector2(608, 352)
 
+[node name="Player4" type="RigidBody2D" parent="Screen/World"]
+position = Vector2(704, 336)
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_ej6p6")
+gravity_scale = 0.0
+continuous_cd = 2
+max_contacts_reported = 5
+contact_monitor = true
+can_sleep = false
+freeze_mode = 1
+linear_damp = 2.0
+script = ExtResource("5_buw34")
+
+[node name="Sprite2D" type="Sprite2D" parent="Screen/World/Player4"]
+scale = Vector2(2, 2)
+texture = ExtResource("6_q64es")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen/World/Player4"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_ee871")
+
 [node name="TileMap" type="TileMap" parent="Screen/World"]
 tile_set = SubResource("TileSet_xqrl7")
 format = 2
 layer_0/tile_data = PackedInt32Array(262152, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 655368, 0, 0, 720904, 0, 0, 786440, 0, 0, 851976, 0, 0, 917512, 0, 0, 983048, 0, 0, 1048584, 0, 0, 1114120, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 327711, 0, 0, 393247, 0, 0, 458783, 0, 0, 524319, 0, 0, 589855, 0, 0, 655391, 0, 0, 720927, 0, 0, 786463, 0, 0, 851999, 0, 0, 917535, 0, 0, 983071, 0, 0, 1048607, 0, 0, 1114143, 0, 0, 1114142, 0, 0, 1114141, 0, 0, 1114140, 0, 0, 1114139, 0, 0, 1114138, 0, 0, 1114137, 0, 0, 1114136, 0, 0, 1114135, 0, 0, 1114134, 0, 0, 1114133, 0, 0, 1114132, 0, 0, 1114131, 0, 0, 1114130, 0, 0, 1114129, 0, 0, 1114128, 0, 0, 1114127, 0, 0, 1114126, 0, 0, 1114125, 0, 0, 1114124, 0, 0, 1114123, 0, 0, 1114122, 0, 0, 1114121, 0, 0)
+
+[node name="TitleLabel" type="Label" parent="Screen/World"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -344.0
+offset_right = 80.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_w4jh1")
+theme_override_font_sizes/font_size = 32
+text = "실험실
+"
+horizontal_alignment = 1
+vertical_alignment = 1
