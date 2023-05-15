@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://chajag1vitkhe"]
+[gd_scene load_steps=5 format=3 uid="uid://dr8n2hlkjrlwo"]
 
-[ext_resource type="Script" path="res://man.gd" id="1_4od4t"]
-[ext_resource type="Texture2D" uid="uid://bg3rxac0wkkhc" path="res://ghost.png" id="2_r5ad8"]
+[ext_resource type="Script" path="res://game_screen/man.gd" id="1_e3upf"]
+[ext_resource type="Texture2D" uid="uid://bg3rxac0wkkhc" path="res://assets/ghost.png" id="2_7ljcb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_70uf4"]
 
@@ -15,10 +15,10 @@ max_contacts_reported = 5
 contact_monitor = true
 freeze_mode = 1
 linear_damp = 1.0
-script = ExtResource("1_4od4t")
+script = ExtResource("1_e3upf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_r5ad8")
+texture = ExtResource("2_7ljcb")
 
 [node name="Timer" type="Timer" parent="."]
 

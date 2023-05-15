@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://co1uqo205j5ad"]
+[gd_scene load_steps=5 format=3 uid="uid://cpedle1cddeqo"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_ure7f"]
-[ext_resource type="Texture2D" uid="uid://brcsu66vn2qxu" path="res://grandfather.png" id="2_vcck3"]
+[ext_resource type="Script" path="res://game_screen/player.gd" id="1_agkeo"]
+[ext_resource type="Texture2D" uid="uid://brcsu66vn2qxu" path="res://assets/grandfather.png" id="2_sebre"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ej6p6"]
 rough = true
@@ -17,10 +17,10 @@ contact_monitor = true
 can_sleep = false
 freeze_mode = 1
 linear_damp = 2.0
-script = ExtResource("1_ure7f")
+script = ExtResource("1_agkeo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vcck3")
+texture = ExtResource("2_sebre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ee871")

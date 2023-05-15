@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcsu66vn2qxu"
-path="res://.godot/imported/grandfather.png-841c3156830c8d6ef5b664a9957aca1c.ctex"
+uid="uid://qpsegmc5j3b8"
+path="res://.godot/imported/wall.png-6b1d64fa3ea5498e75707962a9c3b56c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grandfather.png"
-dest_files=["res://.godot/imported/grandfather.png-841c3156830c8d6ef5b664a9957aca1c.ctex"]
+source_file="res://assets/wall.png"
+dest_files=["res://.godot/imported/wall.png-6b1d64fa3ea5498e75707962a9c3b56c.ctex"]
 
 [params]
 
