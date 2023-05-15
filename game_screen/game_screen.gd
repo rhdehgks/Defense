@@ -1,6 +1,6 @@
 extends Control
 
-@onready var fps_label := $FPSLabel
+@onready var fps_label := $FPS/Label
 
 func _ready():
 	if size != get_viewport_rect().size:

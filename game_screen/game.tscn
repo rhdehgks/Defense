@@ -1,12 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3vpuhsddsbu4"]
+[gd_scene load_steps=15 format=3 uid="uid://c3vpuhsddsbu4"]
 
 [ext_resource type="Script" path="res://game_screen/game_screen.gd" id="1_6cie3"]
 [ext_resource type="PackedScene" uid="uid://bb8e0io6146kh" path="res://game_screen/man.tscn" id="1_xj3yq"]
 [ext_resource type="PackedScene" uid="uid://cpedle1cddeqo" path="res://game_screen/player.tscn" id="2_0nfae"]
+[ext_resource type="Script" path="res://game_screen/fps.gd" id="2_rv8ud"]
 [ext_resource type="FontFile" uid="uid://b3op7qbt8ij11" path="res://assets/fonts/neodgm.ttf" id="2_w4jh1"]
 [ext_resource type="Texture2D" uid="uid://qpsegmc5j3b8" path="res://assets/wall.png" id="3_aen42"]
 [ext_resource type="Script" path="res://game_screen/player.gd" id="5_buw34"]
 [ext_resource type="Texture2D" uid="uid://brcsu66vn2qxu" path="res://assets/grandfather.png" id="6_q64es"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvon4"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2rg0"]
+size = Vector2(112, 32)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ej6p6"]
 rough = true
@@ -48,19 +55,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
-[node name="FPSLabel" type="Label" parent="Screen"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = 64.0
-grow_horizontal = 0
+[node name="FPS" type="RigidBody2D" parent="Screen"]
+position = Vector2(1152, 16)
+physics_material_override = SubResource("PhysicsMaterial_hvon4")
+gravity_scale = 0.0
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("2_rv8ud")
+
+[node name="Label" type="Label" parent="Screen/FPS"]
+offset_right = 128.0
+offset_bottom = 48.0
 theme_override_fonts/font = ExtResource("2_w4jh1")
 theme_override_font_sizes/font_size = 32
-text = "FPS: "
+text = "FPS: 60"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen/FPS"]
+position = Vector2(56, 16)
+shape = SubResource("RectangleShape2D_r2rg0")
 
 [node name="World" type="Control" parent="Screen"]
 layout_mode = 1
