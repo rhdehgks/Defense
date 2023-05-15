@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bg3rxac0wkkhc" path="res://assets/ghost.png" id="2_7ljcb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_70uf4"]
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gwsap"]
 
