@@ -1,25 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3vpuhsddsbu4"]
+[gd_scene load_steps=13 format=3 uid="uid://c3vpuhsddsbu4"]
 
 [ext_resource type="Script" path="res://game_screen/game_screen.gd" id="1_6cie3"]
-[ext_resource type="PackedScene" uid="uid://bb8e0io6146kh" path="res://game_screen/man.tscn" id="1_xj3yq"]
-[ext_resource type="PackedScene" uid="uid://cpedle1cddeqo" path="res://game_screen/player.tscn" id="2_0nfae"]
+[ext_resource type="PackedScene" uid="uid://esounq5240jt" path="res://game_screen/player.tscn" id="2_0nfae"]
 [ext_resource type="Script" path="res://game_screen/fps.gd" id="2_rv8ud"]
 [ext_resource type="FontFile" uid="uid://b3op7qbt8ij11" path="res://assets/fonts/neodgm.ttf" id="2_w4jh1"]
 [ext_resource type="Texture2D" uid="uid://qpsegmc5j3b8" path="res://assets/wall.png" id="3_aen42"]
-[ext_resource type="Script" path="res://game_screen/player.gd" id="5_buw34"]
-[ext_resource type="Texture2D" uid="uid://brcsu66vn2qxu" path="res://assets/grandfather.png" id="6_q64es"]
-[ext_resource type="Texture2D" uid="uid://dhuxch7ibr456" path="res://assets/light.png" id="8_kudqf"]
+[ext_resource type="PackedScene" uid="uid://q811fyeupiqh" path="res://game_screen/ghost.tscn" id="5_sgdfv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hvon4"]
 bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2rg0"]
 size = Vector2(112, 32)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ej6p6"]
-rough = true
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ee871"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_asje6"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -40,8 +32,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sxseq")
 
 [sub_resource type="Environment" id="Environment_qrmiv"]
+background_mode = 3
 glow_enabled = true
-glow_levels/2 = 1.62
+glow_levels/1 = 2.0
+glow_levels/2 = 2.0
+glow_levels/3 = 0.0
+glow_intensity = 1.0
+glow_bloom = 0.05
+glow_blend_mode = 1
 
 [node name="Game" type="Node2D"]
 
@@ -118,200 +116,161 @@ text = "실험실
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Mans" type="Node2D" parent="Screen/World"]
+[node name="Player" parent="Screen/World" instance=ExtResource("2_0nfae")]
+position = Vector2(640, 112)
+scale = Vector2(2, 2)
 
-[node name="Man" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(560, 304)
+[node name="Ghosts" type="Node2D" parent="Screen/World"]
 
-[node name="Man2" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(848, 528)
+[node name="Ghost" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(496, 368)
 
-[node name="Man3" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(672, 384)
+[node name="Ghost2" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(528, 368)
 
-[node name="Man4" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(784, 384)
+[node name="Ghost3" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(560, 368)
 
-[node name="Man5" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(624, 480)
+[node name="Ghost4" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(592, 368)
 
-[node name="Man6" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(560, 240)
+[node name="Ghost5" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(624, 368)
 
-[node name="Man7" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(848, 464)
+[node name="Ghost6" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(656, 368)
 
-[node name="Man8" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(672, 304)
+[node name="Ghost7" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(688, 368)
 
-[node name="Man9" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(816, 304)
+[node name="Ghost8" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(720, 368)
 
-[node name="Man10" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(624, 416)
+[node name="Ghost9" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(752, 368)
 
-[node name="Man11" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(416, 256)
+[node name="Ghost10" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(784, 368)
 
-[node name="Man12" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(704, 480)
+[node name="Ghost11" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(496, 400)
 
-[node name="Man13" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(528, 336)
+[node name="Ghost12" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(528, 400)
 
-[node name="Man14" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(640, 336)
+[node name="Ghost13" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(560, 400)
 
-[node name="Man15" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(480, 432)
+[node name="Ghost14" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(592, 400)
 
-[node name="Man16" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(640, 256)
+[node name="Ghost15" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(624, 400)
 
-[node name="Man17" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(928, 480)
+[node name="Ghost16" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(656, 400)
 
-[node name="Man18" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(752, 336)
+[node name="Ghost17" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(688, 400)
 
-[node name="Man19" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(864, 336)
+[node name="Ghost18" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(720, 400)
 
-[node name="Man20" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(704, 432)
+[node name="Ghost19" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(752, 400)
 
-[node name="Man21" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(640, 192)
+[node name="Ghost20" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(784, 400)
 
-[node name="Man22" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(928, 416)
+[node name="Ghost21" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(496, 432)
 
-[node name="Man23" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(752, 272)
+[node name="Ghost22" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(528, 432)
 
-[node name="Man24" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(864, 272)
+[node name="Ghost23" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(560, 432)
 
-[node name="Man25" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(320, 368)
+[node name="Ghost24" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(592, 432)
 
-[node name="Man26" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(496, 208)
+[node name="Ghost25" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(624, 432)
 
-[node name="Man27" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
+[node name="Ghost26" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(656, 432)
+
+[node name="Ghost27" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(688, 432)
+
+[node name="Ghost28" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(720, 432)
+
+[node name="Ghost29" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(752, 432)
+
+[node name="Ghost30" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
 position = Vector2(784, 432)
 
-[node name="Man28" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(608, 288)
+[node name="Ghost31" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(496, 464)
 
-[node name="Man29" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(720, 288)
+[node name="Ghost32" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(528, 464)
 
-[node name="Man30" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(560, 384)
+[node name="Ghost33" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(560, 464)
 
-[node name="Man31" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(544, 464)
+[node name="Ghost34" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(592, 464)
 
-[node name="Man32" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(464, 464)
+[node name="Ghost35" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(624, 464)
 
-[node name="Man33" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(416, 432)
+[node name="Ghost36" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(656, 464)
 
-[node name="Man34" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(400, 368)
+[node name="Ghost37" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(688, 464)
 
-[node name="Man35" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(352, 432)
+[node name="Ghost38" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(720, 464)
 
-[node name="Man36" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(384, 480)
+[node name="Ghost39" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(752, 464)
 
-[node name="Man37" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(448, 320)
+[node name="Ghost40" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(784, 464)
 
-[node name="Man38" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(336, 304)
+[node name="Ghost41" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(496, 496)
 
-[node name="Man39" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(336, 224)
+[node name="Ghost42" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(528, 496)
 
-[node name="Man40" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(400, 192)
+[node name="Ghost43" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(560, 496)
 
-[node name="Man41" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(496, 272)
+[node name="Ghost44" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(592, 496)
 
-[node name="Man42" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(688, 224)
+[node name="Ghost45" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(624, 496)
 
-[node name="Man43" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(752, 192)
+[node name="Ghost46" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(656, 496)
 
-[node name="Man44" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(816, 192)
+[node name="Ghost47" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(688, 496)
 
-[node name="Man45" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(928, 208)
+[node name="Ghost48" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(720, 496)
 
-[node name="Man46" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(960, 272)
+[node name="Ghost49" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(752, 496)
 
-[node name="Man47" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(944, 336)
-
-[node name="Man48" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(816, 240)
-
-[node name="Man49" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(512, 512)
-
-[node name="Man50" parent="Screen/World/Mans" instance=ExtResource("1_xj3yq")]
-position = Vector2(848, 400)
-
-[node name="Players" type="Node2D" parent="Screen/World"]
-
-[node name="Player" parent="Screen/World/Players" instance=ExtResource("2_0nfae")]
-position = Vector2(480, 368)
-
-[node name="Player2" parent="Screen/World/Players" instance=ExtResource("2_0nfae")]
-position = Vector2(576, 432)
-
-[node name="Player3" parent="Screen/World/Players" instance=ExtResource("2_0nfae")]
-position = Vector2(608, 352)
-
-[node name="Player4" type="RigidBody2D" parent="Screen/World/Players"]
-position = Vector2(960, 416)
-mass = 2.0
-physics_material_override = SubResource("PhysicsMaterial_ej6p6")
-gravity_scale = 0.0
-continuous_cd = 2
-max_contacts_reported = 5
-contact_monitor = true
-can_sleep = false
-freeze_mode = 1
-linear_damp = 2.0
-script = ExtResource("5_buw34")
-
-[node name="Sprite2D" type="Sprite2D" parent="Screen/World/Players/Player4"]
-scale = Vector2(2, 2)
-texture = ExtResource("6_q64es")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen/World/Players/Player4"]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_ee871")
-
-[node name="PointLight2D" type="PointLight2D" parent="Screen/World/Players/Player4"]
-shadow_enabled = true
-texture = ExtResource("8_kudqf")
-texture_scale = 2.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="Screen/World/Players/Player4"]
-range_item_cull_mask = 2
-shadow_item_cull_mask = 0
-texture = ExtResource("8_kudqf")
-texture_scale = 2.0
+[node name="Ghost50" parent="Screen/World/Ghosts" instance=ExtResource("5_sgdfv")]
+position = Vector2(784, 496)
 
 [node name="TileMap" type="TileMap" parent="Screen/World"]
 light_mask = 3
