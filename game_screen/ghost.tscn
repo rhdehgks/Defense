@@ -49,6 +49,7 @@ position = Vector2(0, 11)
 process_material = SubResource("ParticleProcessMaterial_vuv1k")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+light_mask = 512
 texture = ExtResource("2_hxgm2")
 
 [node name="Timer" type="Timer" parent="RigidBody2D"]

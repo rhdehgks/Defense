@@ -1,22 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbn3hxkmb7jrk"]
+[gd_scene load_steps=4 format=3 uid="uid://dbn3hxkmb7jrk"]
 
 [ext_resource type="Texture2D" uid="uid://d1yyjbgfme3jd" path="res://assets/left.png" id="1_h0ky5"]
+[ext_resource type="Texture2D" uid="uid://ch7jlg8m7pxr2" path="res://assets/right.png" id="2_lnkpi"]
+[ext_resource type="Texture2D" uid="uid://jjuo4sqxsqut" path="res://assets/up.png" id="3_d3pb3"]
 
 [node name="TouchUI" type="CanvasLayer"]
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(64, 576)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Container" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 256.0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control/Container"]
+position = Vector2(16, 16)
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("1_h0ky5")
 action = "ui_left"
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2(224, 640)
-rotation = 3.14159
-texture_normal = ExtResource("1_h0ky5")
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Control/Container"]
+position = Vector2(144, 16)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_lnkpi")
 action = "ui_right"
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
-position = Vector2(1216, 576)
-rotation = 1.5708
-texture_normal = ExtResource("1_h0ky5")
+[node name="Container2" type="Container" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Control/Container2"]
+position = Vector2(16, 16)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_d3pb3")
 action = "ui_up"
