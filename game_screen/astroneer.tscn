@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c02cped3h1jiw"]
+[gd_scene load_steps=12 format=3 uid="uid://c02cped3h1jiw"]
 
 [ext_resource type="Script" path="res://game_screen/astroneer.gd" id="1_ewprm"]
 [ext_resource type="Texture2D" uid="uid://sgmkd62pwg6f" path="res://assets/astroneer.png" id="1_w4wu5"]
@@ -10,6 +10,40 @@ friction = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjutg"]
 radius = 16.0
+
+[sub_resource type="Gradient" id="Gradient_23yuo"]
+offsets = PackedFloat32Array(0.118519, 0.259259, 0.681481)
+colors = PackedColorArray(1, 0.451823, 0.294325, 1, 0.974599, 0.663135, 0.16723, 1, 0.941176, 0.941176, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rf4wm"]
+gradient = SubResource("Gradient_23yuo")
+
+[sub_resource type="Curve" id="Curve_oavxr"]
+_data = [Vector2(0, 0.990909), 0.0, 0.0, 0, 0, Vector2(0.23, 1), 0.0, 0.0, 0, 0, Vector2(0.566265, 0.654545), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_06ncm"]
+curve = SubResource("Curve_oavxr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5buj0"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 30.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 70.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 150.0
+damping_max = 220.0
+angle_min = 360.0
+angle_max = 720.0
+scale_min = 7.0
+scale_max = 9.0
+scale_curve = SubResource("CurveTexture_06ncm")
+color = Color(0.909804, 0.894118, 0.356863, 1)
+color_ramp = SubResource("GradientTexture1D_rf4wm")
 
 [node name="Astroneer" type="Node2D"]
 
@@ -43,3 +77,9 @@ blend_mode = 2
 range_item_cull_mask = 2
 texture = ExtResource("4_yi361")
 texture_scale = 0.2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="RigidBody2D"]
+light_mask = 512
+position = Vector2(0, 13)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_5buj0")
