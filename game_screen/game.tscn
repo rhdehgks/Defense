@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn2egdfwgd7as"]
+[gd_scene load_steps=16 format=3 uid="uid://4yaf3ql82wqu"]
 
 [ext_resource type="Script" path="res://game_screen/game_screen.gd" id="1_6cie3"]
-[ext_resource type="PackedScene" uid="uid://dmnuo5txrupga" path="res://game_screen/fairy.tscn" id="2_0nfae"]
+[ext_resource type="PackedScene" uid="uid://du6hd3lswq54q" path="res://game_screen/ufo.tscn" id="2_0nfae"]
 [ext_resource type="Script" path="res://game_screen/fps.gd" id="2_rv8ud"]
 [ext_resource type="FontFile" uid="uid://b3op7qbt8ij11" path="res://assets/fonts/neodgm.ttf" id="2_w4jh1"]
 [ext_resource type="Texture2D" uid="uid://qpsegmc5j3b8" path="res://assets/wall.png" id="3_aen42"]
@@ -121,7 +121,7 @@ text = "실험실
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Fairy" parent="Screen/World" instance=ExtResource("2_0nfae")]
+[node name="UFO" parent="Screen/World" instance=ExtResource("2_0nfae")]
 position = Vector2(640, 112)
 
 [node name="Ghosts" type="Node2D" parent="Screen/World"]
@@ -280,7 +280,7 @@ position = Vector2(784, 496)
 light_mask = 3
 tile_set = SubResource("TileSet_xqrl7")
 format = 2
-layer_0/tile_data = PackedInt32Array(262152, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 655368, 0, 0, 720904, 0, 0, 786440, 0, 0, 851976, 0, 0, 917512, 0, 0, 983048, 0, 0, 1048584, 0, 0, 1114120, 0, 0, 262175, 0, 0, 327711, 0, 0, 393247, 0, 0, 458783, 0, 0, 524319, 0, 0, 589855, 0, 0, 655391, 0, 0, 720927, 0, 0, 786463, 0, 0, 851999, 0, 0, 917535, 0, 0, 983071, 0, 0, 1048607, 0, 0, 1114143, 0, 0, 1114142, 0, 0, 1114141, 0, 0, 1114140, 0, 0, 1114139, 0, 0, 1114138, 0, 0, 1114137, 0, 0, 1114136, 0, 0, 1114135, 0, 0, 1114134, 0, 0, 1114133, 0, 0, 1114132, 0, 0, 1114131, 0, 0, 1114130, 0, 0, 1114129, 0, 0, 1114128, 0, 0, 1114127, 0, 0, 1114126, 0, 0, 1114125, 0, 0, 1114124, 0, 0, 1114123, 0, 0, 1114122, 0, 0, 1114121, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262174, 0, 0, 262173, 0, 0, 262172, 0, 0, 262171, 0, 0, 262156, 0, 0, 262157, 0, 0, 262170, 0, 0)
+layer_0/tile_data = PackedInt32Array(1114120, 0, 0, 1114143, 0, 0, 1114142, 0, 0, 1114141, 0, 0, 1114140, 0, 0, 1114139, 0, 0, 1114138, 0, 0, 1114137, 0, 0, 1114136, 0, 0, 1114135, 0, 0, 1114134, 0, 0, 1114133, 0, 0, 1114132, 0, 0, 1114131, 0, 0, 1114130, 0, 0, 1114129, 0, 0, 1114128, 0, 0, 1114127, 0, 0, 1114126, 0, 0, 1114125, 0, 0, 1114124, 0, 0, 1114123, 0, 0, 1114122, 0, 0, 1114121, 0, 0)
 
 [node name="Astroneer" parent="Screen/World" instance=ExtResource("7_avu7q")]
 
