@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbn3hxkmb7jrk"]
+
+[ext_resource type="Texture2D" uid="uid://d1yyjbgfme3jd" path="res://assets/left.png" id="1_h0ky5"]
+
+[node name="TouchUI" type="CanvasLayer"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(64, 576)
+texture_normal = ExtResource("1_h0ky5")
+action = "ui_left"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(224, 640)
+rotation = 3.14159
+texture_normal = ExtResource("1_h0ky5")
+action = "ui_right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+position = Vector2(1216, 576)
+rotation = 1.5708
+texture_normal = ExtResource("1_h0ky5")
+action = "ui_up"
