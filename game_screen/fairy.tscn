@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmnuo5txrupga"]
+[gd_scene load_steps=7 format=3 uid="uid://dmnuo5txrupga"]
 
 [ext_resource type="Script" path="res://game_screen/fairy.gd" id="1_nbmj6"]
 [ext_resource type="Texture2D" uid="uid://brcsu66vn2qxu" path="res://assets/grandfather.png" id="2_sebre"]
-[ext_resource type="Texture2D" uid="uid://dhuxch7ibr456" path="res://assets/light.png" id="3_jbojs"]
+[ext_resource type="Texture2D" uid="uid://dk5mjp6yoncq8" path="res://assets/light2.png" id="3_6t2lc"]
+[ext_resource type="PackedScene" uid="uid://b58eeuwfrhyr" path="res://game_screen/screen_wrapper.tscn" id="4_gjdlj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ej6p6"]
 rough = true
@@ -32,11 +33,11 @@ shape = SubResource("CircleShape2D_ee871")
 [node name="PointLight2D" type="PointLight2D" parent="RigidBody2D"]
 blend_mode = 2
 shadow_enabled = true
-texture = ExtResource("3_jbojs")
-texture_scale = 2.0
+texture = ExtResource("3_6t2lc")
 
 [node name="TileMapLight" type="PointLight2D" parent="RigidBody2D"]
 blend_mode = 2
 range_item_cull_mask = 2
-texture = ExtResource("3_jbojs")
-texture_scale = 2.0
+texture = ExtResource("3_6t2lc")
+
+[node name="ScreenWrapper" parent="RigidBody2D" instance=ExtResource("4_gjdlj")]
