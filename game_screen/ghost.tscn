@@ -34,8 +34,8 @@ color = Color(0.909804, 0.894118, 0.862745, 1)
 [node name="Ghost" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-collision_layer = 2
-collision_mask = 6
+collision_layer = 8
+collision_mask = 13
 physics_material_override = SubResource("PhysicsMaterial_70uf4")
 gravity_scale = 0.0
 continuous_cd = 2

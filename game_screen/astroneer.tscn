@@ -46,8 +46,8 @@ color_ramp = SubResource("GradientTexture1D_rf4wm")
 
 [node name="Astroneer" type="RigidBody2D"]
 position = Vector2(544, 224)
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_0vbs5")
 max_contacts_reported = 5
 contact_monitor = true

@@ -88,9 +88,10 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
-2d_physics/layer_1="Wall"
-2d_physics/layer_2="Player"
-2d_physics/layer_3="Ghost"
+2d_physics/layer_1="Boundary"
+2d_physics/layer_2="Wall"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Floating"
 
 [rendering]
 
