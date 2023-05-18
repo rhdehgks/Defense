@@ -65,7 +65,7 @@ offset_right = 3808.0
 offset_bottom = 2400.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+color = Color(0.0980392, 0.156863, 0.156863, 1)
 
 [node name="World" type="Control" parent="Screen"]
 layout_mode = 1
