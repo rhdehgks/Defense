@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var direction := Vector2(0, 0)
 var speed := 800
-var jump_strength := 600
+var jump_strength := 500
 
 var is_up := false
 var up_strength := 200

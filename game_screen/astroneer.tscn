@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c02cped3h1jiw"]
+[gd_scene load_steps=11 format=3 uid="uid://c02cped3h1jiw"]
 
 [ext_resource type="Script" path="res://game_screen/astroneer.gd" id="1_ewprm"]
 [ext_resource type="Texture2D" uid="uid://sgmkd62pwg6f" path="res://assets/astroneer.png" id="1_w4wu5"]
-[ext_resource type="PackedScene" uid="uid://b58eeuwfrhyr" path="res://game_screen/screen_wrapper.tscn" id="3_h1buo"]
 [ext_resource type="Texture2D" uid="uid://dhuxch7ibr456" path="res://assets/light.png" id="4_a11fa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0vbs5"]
@@ -12,8 +11,8 @@ friction = 0.0
 radius = 16.0
 
 [sub_resource type="Gradient" id="Gradient_23yuo"]
-offsets = PackedFloat32Array(0.118519, 0.259259, 0.681481)
-colors = PackedColorArray(1, 0.451823, 0.294325, 1, 0.974599, 0.663135, 0.16723, 1, 0.941176, 0.941176, 0, 1)
+offsets = PackedFloat32Array(0.118519, 0.244444, 0.681481)
+colors = PackedColorArray(1, 0.776471, 0.294118, 1, 0.976471, 0.52549, 0.168627, 1, 0.941176, 0.294118, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_rf4wm"]
 gradient = SubResource("Gradient_23yuo")
@@ -45,10 +44,10 @@ scale_curve = SubResource("CurveTexture_06ncm")
 color = Color(0.909804, 0.894118, 0.356863, 1)
 color_ramp = SubResource("GradientTexture1D_rf4wm")
 
-[node name="Astroneer" type="Node2D"]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Astroneer" type="RigidBody2D"]
 position = Vector2(544, 224)
+collision_layer = 2
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_0vbs5")
 max_contacts_reported = 5
 contact_monitor = true
@@ -58,27 +57,25 @@ freeze_mode = 1
 linear_damp = 2.0
 script = ExtResource("1_ewprm")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_w4wu5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gjutg")
 
-[node name="ScreenWrapper" parent="RigidBody2D" instance=ExtResource("3_h1buo")]
-
-[node name="PointLight2D" type="PointLight2D" parent="RigidBody2D"]
+[node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_a11fa")
 texture_scale = 0.2
 
-[node name="TileMapLight" type="PointLight2D" parent="RigidBody2D"]
+[node name="TileMapLight" type="PointLight2D" parent="."]
 blend_mode = 2
 range_item_cull_mask = 2
 texture = ExtResource("4_a11fa")
 texture_scale = 0.2
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="RigidBody2D"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 light_mask = 512
 position = Vector2(0, 13)
 amount = 12

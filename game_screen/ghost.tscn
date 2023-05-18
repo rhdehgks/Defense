@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://q811fyeupiqh"]
+[gd_scene load_steps=8 format=3 uid="uid://q811fyeupiqh"]
 
 [ext_resource type="Script" path="res://game_screen/ghost.gd" id="1_6bt7a"]
 [ext_resource type="Texture2D" uid="uid://bg3rxac0wkkhc" path="res://assets/ghost.png" id="2_hxgm2"]
-[ext_resource type="PackedScene" uid="uid://b58eeuwfrhyr" path="res://game_screen/screen_wrapper.tscn" id="3_3ds6i"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_70uf4"]
 bounce = 0.5
@@ -35,11 +34,12 @@ color = Color(0.909804, 0.894118, 0.862745, 1)
 [node name="Ghost" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_70uf4")
 gravity_scale = 0.0
 continuous_cd = 2
 max_contacts_reported = 5
-contact_monitor = true
 freeze_mode = 1
 linear_damp = 1.0
 script = ExtResource("1_6bt7a")
@@ -55,7 +55,5 @@ texture = ExtResource("2_hxgm2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_gwsap")
-
-[node name="ScreenWrapper" parent="RigidBody2D" instance=ExtResource("3_3ds6i")]
 
 [connection signal="timeout" from="RigidBody2D/Timer" to="RigidBody2D" method="_on_timer_timeout" flags=18]

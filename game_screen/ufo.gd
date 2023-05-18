@@ -4,13 +4,10 @@ var speed := 800
 var strength := 400
 
 var follow_intensity := 10
-var rotation_intensity := 5
+var rotation_intensity := 30
 
-@onready var astroneer: RigidBody2D = $"/root/Game/Screen/World/Astroneer/RigidBody2D"
+@onready var astroneer: RigidBody2D = $"/root/Game".find_child("Astroneer")
 @onready var screen_wrapper: ScreenWrapper = $"ScreenWrapper"
-
-func _ready():
-	print(astroneer)
 	
 func _physics_process(delta):
 	_follow(astroneer, Vector2(0, -32 * 5), follow_intensity)
